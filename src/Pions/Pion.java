@@ -49,10 +49,6 @@ public class Pion {
         return Blanc;
     }
 
-    public void setBlanc(boolean Blanc) {
-        this.Blanc = Blanc;
-    }
-
     public boolean AdejaBouger() {
         return Abouger;
     }

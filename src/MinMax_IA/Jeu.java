@@ -444,11 +444,6 @@ public class Jeu {
         return gui;
     }
 
-    public void setGui(GUI gui) {
-        this.gui = gui;
-    }
-
-
     public Recherche_Coups getCoupRecherche() {
         return coupRecherche;
     }

@@ -17,7 +17,7 @@ public class Get_Set_Plateau {
 
    //on cherche quel pion est à ces coords
     public Pion getPionParCoords(int ligne, int colonne) {
-        Pion pion = null;
+        Pion pion;
         //System.out.println("On cherche le type de pièce situé en "+ligne+"  "+colonne);
         if (ligne < 0 || ligne > (Main.getTaille()-1) || colonne < 0 || colonne > (Main.getTaille()-1))
             return null;

@@ -1,8 +1,6 @@
+/*
+  @author OkaTravaille
 
-
-/**
- * @author OkaTravaille
- *
  */
 
 package MinMax_IA;

@@ -59,16 +59,6 @@ public class Autre_Fonctions {
 
     }
 
-
-    // format correct du temps
-    public static String getTime() {
-        long timemillis = System.currentTimeMillis();
-        SimpleDateFormat format = new SimpleDateFormat("MMM dd, yyyy HH:mm:ss");
-
-        Date bonnedate = new Date(timemillis);
-        return format.format(bonnedate);
-    }
-
    //date utilisable en nom de fichier
     public static String getTimeNoSpaces() {
         long timemillis = System.currentTimeMillis();

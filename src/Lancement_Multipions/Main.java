@@ -1,7 +1,7 @@
 package Lancement_Multipions;
 
 import MinMax_IA.Jeu;
-import Pions.Pion;
+
 
 public class Main {
 
@@ -13,29 +13,16 @@ public class Main {
 
 
     }
-
-
     private static int taille = 3;
-
-
-
     // Poids pour IA
     private final static int PoidPion = 3;
     private final static int VictoirePoid = 1000000;
     private final static int PoidVictoireDirect = 1000000;
     private final static int EgalitePoid = 0;
-    private static double positionalPoid = .05;
-    private static double TactiquePoid = .80;
     private final static double coupSmart = -0.1;
 
 
-
-
-
-
     // profondeur recherche , cad la difficulte de l'IA
-    private static int profondeurmax = 9;
-    private static int profondeurmin = 1;
     private static final int profondeurdefaut = 6;
     private static int profondeur = profondeurdefaut;
 
@@ -46,10 +33,7 @@ public class Main {
     private static String gameMode = gamemodeDefaut;
 
 
-    public static int getPoidPiece(Pion pion) {
-//avant convertion en jeu d'echec , il n'y a que les pions
-        return PoidPion;
-    }
+    public static int getPoidPiece() {return PoidPion;}
 
     public static int VictoirePoid() {
 
@@ -67,10 +51,10 @@ public class Main {
     }
 
     public static double getPositionalPoid() {
-        return positionalPoid;
+        return .05;
     }
     public static double getTactiquePoid() {
-        return TactiquePoid;
+        return .80;
     }
     public static int getProfondeur() {
         return profondeur;

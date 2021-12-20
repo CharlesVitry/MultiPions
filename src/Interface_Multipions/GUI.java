@@ -177,11 +177,11 @@ public class GUI {
 
         JSeparator separator = new JSeparator();
         FichierMenu.add(separator);
-        if (Main.getGameMode() == "JvsJ")
+        if (Objects.equals(Main.getGameMode(), "JvsJ"))
             slider.setValue(11);
-        else if (Main.getGameMode() == "JvsIA")
+        else if (Objects.equals(Main.getGameMode(), "JvsIA"))
             slider.setValue(30);
-        else if (Main.getGameMode() == "IAvsJ")
+        else if (Objects.equals(Main.getGameMode(), "IAvsJ"))
             slider.setValue(80);
         else
             slider.setValue(98);
@@ -320,12 +320,7 @@ public class GUI {
     public boolean finJeu(){
         int Fin = JOptionPane.showConfirmDialog(frmMultipions,"Fin du jeu \n Nouvelle partie ?");
 
-        if(Fin == JOptionPane.YES_OPTION)
-        {
-            return true;
-        }
-        else
-            return false;
+        return Fin == JOptionPane.YES_OPTION;
     }
 
 
@@ -418,7 +413,6 @@ public class GUI {
 
     }
 
-    @SuppressWarnings("unchecked")
     private void refreshPionCapture() {
         //on retire les anciennes images pour ne pas les avoir en double
         panel_1.removeAll();
@@ -490,7 +484,7 @@ public class GUI {
     public ImageIcon GenereImagesPieces(int ligne, int colonne) {
 
         Pion piece = Plateau.getPionParCoords(ligne, colonne);
-        ImageIcon image = null;
+        ImageIcon image;
 
         if (piece == null)
             image = Images.get("Rien");
@@ -561,10 +555,6 @@ public class GUI {
         System.out.println("piece de coords retirer pour beau visuel : "+row+" , "+col);
         ListePions[row][col].getLabel().setIcon(Images.get("Rien"));
 
-    }
-
-    public JFrame getFrame() {
-        return frmMultipions;
     }
 
     public void suppressionAideCoupsPossible() {

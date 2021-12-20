@@ -10,7 +10,7 @@ public class Coup {
     int ligne_arrive;
     int colone_arrive;
     Pion pion;
-    int score = 0;
+
 
 
     //constructeur non vide
@@ -22,14 +22,6 @@ public class Coup {
         this.ligne_arrive = ligne_arrive1;
         this.colone_arrive = colone_arrive1;
 
-    }
-
-    public Coup(Coup coup) {
-        this.pion = coup.getPion();
-        this.ligne_depart = coup.getLigne_depart();
-        this.colonne_depart = coup.getColonne_depart();
-        this.ligne_arrive = coup.getLigne_arrive();
-        this.colone_arrive = coup.getColone_arrive();
     }
 
     // renvoit nouvelle coords du pion en String
@@ -51,14 +43,6 @@ public class Coup {
 
     }
 
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
 
     public Pion getPion() {
         return pion;

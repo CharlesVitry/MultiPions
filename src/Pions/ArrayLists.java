@@ -1,6 +1,7 @@
 package Pions;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import Coups.Coup;
 import Lancement_Multipions.Main;
@@ -56,7 +57,7 @@ public class ArrayLists {
         for (int i = 0; i < Main.getTaille(); i++) {
             Plateau[(Main.getTaille()-1)][i] = new Pion( Noir, Abouger, 6, i, i + Main.getTaille());
         }
-        System.out.println("plateau : "+ Plateau);
+        System.out.println("plateau : "+ Arrays.deepToString(Plateau));
 
     }
 

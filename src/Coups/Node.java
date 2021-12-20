@@ -34,10 +34,6 @@ public class Node {
         return coup;
     }
 
-    public void setCoup(Coup coup) {
-        this.coup = coup;
-    }
-
     public double getScore() {
         return score;
     }

@@ -2,8 +2,6 @@ package MinMax_IA;
 
 import java.util.ArrayList;
 
-import javax.swing.tree.DefaultMutableTreeNode;
-
 import Coups.Coup;
 import Coups.Node;
 import Lancement_Multipions.Main;
@@ -102,8 +100,7 @@ public class MinMax {
     }
 
 
-    double recherche(double alpha, double beta, int profondeurReste,
-                     boolean tourAublanc, Node parent) {
+    double recherche(double alpha, double beta, int profondeurReste, boolean tourAublanc, Node parent) {
         double score;
         boolean Abouger;
         boolean recherche = true;
@@ -255,11 +252,11 @@ public class MinMax {
             coup.getPion().ABouger(abougee);
 
             if (score >= beta) {
-                boolean nodeFound = false;
-                for (Coup killerNode : ListeCoupSmart.get(profondeurReste))
-                    if (killerNode.egale(node.getCoup()))
-                        nodeFound = true;
-                if (!nodeFound)
+                boolean trouver = false;
+                for (Coup coupSmart : ListeCoupSmart.get(profondeurReste))
+                    if (coupSmart.egale(node.getCoup()))
+                        trouver = true;
+                if (!trouver)
                     ListeCoupSmart.get(profondeurReste).add(node.getCoup());
                 return beta;
             }
@@ -366,9 +363,7 @@ public class MinMax {
 
            //si capture possible
             if (pionCible != null) {
-                int materialScore = Main.getPoidPiece(node
-                        .getCoup().getPion())
-                        - Main.getPoidPiece(pionCible);
+                int materialScore = 0;
                 node.setScore(materialScore);
             }
             else {
@@ -452,12 +447,12 @@ public class MinMax {
         for (int i = 0; i < Pions_List.nbre_Liste; i++) {
             Pion piece = PionsBlancs.getPiece(i);
             if (piece != null) {
-                BlancScore += Main.getPoidPiece(piece);
+                BlancScore += Main.getPoidPiece();
 
 
                 // Victoire possible
                 if ( piece.getligne() == (Main.getTaille()-1) ){
-                    System.out.println("Victoire possible pour L'IA");
+                    System.out.println("Victoire possible pour Blanc");
 
                     BlancScore += Main.VictoirePoid() ;
                 }
@@ -466,10 +461,10 @@ public class MinMax {
         for (int i = 0; i < Pions_List.nbre_Liste; i++) {
             Pion pion = PionsNoirs.getPiece(i);
             if (pion != null) {
-                NoirScore += Main.getPoidPiece(pion);
+                NoirScore += Main.getPoidPiece();
 
                 if ( pion.getligne() == 0) {
-                    System.out.println("Victoire possible pour L'IA");
+                    System.out.println("Victoire possible pour Noir");
                     NoirScore += Main.VictoirePoid() ;
                 }
             }
