@@ -481,36 +481,6 @@ public class MinMax {
         return retour;
     }
 
-    //copy algo qui était créé pour Pente en L2
-    public double ancienAlgo(int profondeur, Coup precendentCoup,
-                             DefaultMutableTreeNode parent) {
-
-        double max = Integer.MIN_VALUE;
-        double score;
-
-        boolean blanc = !precendentCoup.getPion().Equipe();
-        ArrayList<Coup> coupsPossibles = jeu.getCoupRecherche().ListeCoupsCoords(
-                blanc);
-        int i = 0;
-        for (Coup coup : coupsPossibles) {
-            i++;
-            Pion pionsCapture = Regles.ApplicationCoup(coup);
-
-            DefaultMutableTreeNode node = new DefaultMutableTreeNode();
-            node.setAllowsChildren(true);
-            score = -ancienAlgo(profondeur - 1, coup, node);
-
-            node.setUserObject(i + ", " + coup.CoordsEnString() + ": "
-                    + score);
-
-            parent.add(node);
-
-            if (score > max)
-                max = score;
-            Regles.ChangementDelete(pionsCapture, coup);
-        }
-        return max;
-    }
 
 
 
