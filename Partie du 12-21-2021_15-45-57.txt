@@ -1,0 +1,5 @@
+Coups joués
+
+  Blanc             Noir
+1 Pion en ( 2 , 2 ) Pion en ( 2 , 2 ) 
+2 Pion en ( 2 , 2 ) 

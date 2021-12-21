@@ -13,11 +13,11 @@ public class Main {
 
 
     }
-    private static int taille = 3;
+    private static int taille = 4;
     // Poids pour IA
-    private final static int PoidPion = 3;
-    private final static int VictoirePoid = 1000000;
-    private final static int PoidVictoireDirect = 1000000;
+    private final static int PoidPion = 50;
+    private final static int VictoirePoid = 500;
+    private final static int PoidTotale = 5000;
     private final static int EgalitePoid = 0;
     private final static double coupSmart = -0.1;
 
@@ -51,10 +51,10 @@ public class Main {
     }
 
     public static double getPositionalPoid() {
-        return .05;
+        return .7;
     }
     public static double getTactiquePoid() {
-        return .80;
+        return .3;
     }
     public static int getProfondeur() {
         return profondeur;
@@ -69,8 +69,8 @@ public class Main {
 
     }
 
-    public static double getPoidVictoireDirect() {
-        return PoidVictoireDirect;
+    public static double getPoidTotale() {
+        return PoidTotale;
     }
 
     public static double getEgalitePoid() {

@@ -18,8 +18,7 @@ public class MinMax {
     Node meilleurNode;
     ArrayList<Node> ListeTest;
     ArrayList<Node> ListeValide = new ArrayList<>();
-    ArrayList<ArrayList<Coup>> ListeCoupSmart = new ArrayList<>(
-            Main.getProfondeur() + 1);
+    ArrayList<ArrayList<Coup>> ListeCoupSmart = new ArrayList<>(Main.getProfondeur() + 1);
     Node[] listeNodes;
     int[] Nbre_Nodes;
     static Operator_Node node_operateur;
@@ -57,8 +56,8 @@ public class MinMax {
     public void choixCoup(boolean touraublanc) {
 
 
-        double alpha = -Main.getPoidVictoireDirect();
-        double beta = Main.getPoidVictoireDirect();
+        double alpha = -Main.getPoidTotale();
+        double beta = Main.getPoidTotale();
         nbre_Branche = 0;
         Node parent = jeu.getnodes.racine;
 
@@ -284,8 +283,7 @@ public class MinMax {
     }
 
    //applique la recherche et trouve le meilleur compromis
-    public double resultatRecherche(double alpha, double beta, boolean blanc,
-                                    Node parent, int profondeurRestante) {
+    public double resultatRecherche(double alpha, double beta, boolean blanc, Node parent, int profondeurRestante) {
         Nbre_Nodes[this.profondeur]++;
 
         double evalNode = ScoreNodeParent(blanc, parent);
@@ -447,12 +445,14 @@ public class MinMax {
         for (int i = 0; i < Pions_List.nbre_Liste; i++) {
             Pion piece = PionsBlancs.getPiece(i);
             if (piece != null) {
+                //on ajoute le poid du pion si il est toujours présent
                 BlancScore += Main.getPoidPiece();
 
 
-                // Victoire possible
+                // on ajoute le poid de la victoire si elle est possible
                 if ( piece.getligne() == (Main.getTaille()-1) ){
-                    System.out.println("Victoire possible pour Blanc");
+
+                    System.out.println("Blanc arrivé");
 
                     BlancScore += Main.VictoirePoid() ;
                 }
@@ -464,7 +464,7 @@ public class MinMax {
                 NoirScore += Main.getPoidPiece();
 
                 if ( pion.getligne() == 0) {
-                    System.out.println("Victoire possible pour Noir");
+                    System.out.println("Noir arrivé");
                     NoirScore += Main.VictoirePoid() ;
                 }
             }
